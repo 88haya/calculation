@@ -1,0 +1,14 @@
+.title {
+    color: #02ccba;
+  }
+
+
+
+  ol .circleNumber {
+    list-style-type: none;
+    counter-increment: cnt;
+  }
+  
+  ol .circleNumber::before {
+    content: "(" counter(cnt) ") ";
+  }
