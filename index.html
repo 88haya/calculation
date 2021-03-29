@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>スピード暗算</title>
+    <link rel="stylesheet" href="stylesheet.css">
+
+    <script>
+      function makeExpression(){
+        var expression = document.getElementById("expression");
+        for(i=0;i<10;i++){
+          var item = document.createElement("li");
+          item.setAttribute("class","circleNumber");
+          item.textContent = getRandomInt(11,100) + "×" + getRandomInt(11,100);
+          expression.appendChild(item);
+        }
+      }
+
+      function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        result = Math.floor(Math.random() * (max - min) + min)
+        if (result%10 == 0){
+          result = getRandomInt(min,max)
+        }
+        return result; //The maximum is exclusive and the minimum is inclusive
+      }
+
+    </script>
+  </head>
+
+  <body>
+    <h1 class="title">暗算スピードを測定</h1>
+    <h2>2桁×2桁</h2>
+    <button onclick="makeExpression()">スタート</button>
+    <ol id="expression"></ol>
+  </body>
+
+</html>
